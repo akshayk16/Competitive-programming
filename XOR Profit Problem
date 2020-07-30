@@ -1,0 +1,51 @@
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Problem
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+We are given two coins of value x and y. We have to find the maximum of value of a XOR b where x <= a <= b <= y.
+
+Input Format
+We are given two integers x and y
+
+Constraints
+l <= r <= 1000
+
+Output Format
+Print the maximum value of a XOR b
+
+Sample Input
+5
+6
+Sample Output
+3
+Explanation
+If a and b are taken to be 5. Then a xor b = 0
+If a and b are taken to be 6. Then a xor b = 0
+If a is 5 and b is 6. Then a xor b is 3.
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Code:C++
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+#include <iostream>
+#include<algorithm>
+using namespace std;
+
+int maxxor(int x,int y)
+{
+    int maxxor1=0;
+    int k,l,i,j;
+    for(i=x;i<=y;i++)
+    {
+        for( j=x+1;j<=y;j++)
+        {
+          maxxor1=max(maxxor1,i^j);
+        }
+    }
+    return maxxor1;
+}
+int main()
+{  int x,y;
+   cin>>x>>y;
+    int result=maxxor(x,y);
+    cout<<result<<endl;
+
+    return 0;
+}
